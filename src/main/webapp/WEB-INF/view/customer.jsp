@@ -1,0 +1,118 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page isELIgnored="false"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style type="text/css">
+.error {
+	color: #ff0000;
+}
+
+body {
+	background-image:
+		url("https://media.gettyimages.com/photos/pasta-ingredients-picture-id635920906?s=2048x2048");
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: auto;
+	position: relative;
+	background-position: center;
+	background-repeat: no-repeat;
+	padding: 200px;
+	font-family: Arial, Helvetica;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.box {
+	background-color: white;
+	padding: 20px;
+}
+
+.name, .address {
+	width: 100%;
+	padding: 15px;
+	margin: 5px 0 22px 0;
+	display: inline-block;
+	border: none;
+	background: #f1f1f1;
+}
+
+.submit {
+	background-color: #555555;
+	color: white;
+	padding: 16px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 30%;
+	opacity: 0.9;
+	align-items: center;
+	border-radius: 25px;
+	margin-left: 35%;
+}
+.header{
+  position: absolute;
+  top: 35px;
+ left:30%;
+  text-align: center;
+  color: white;
+  font-size: 85px;
+  font-weight: bold;
+  font-family:Georgia, serif;
+  }
+
+</style>
+</head>
+<body>
+	<div class="header">Bon Appetite
+	
+	</div>
+
+	<form:form action="/CustomerDetails/registerSuccess" method="post"
+		modelAttribute="customer">
+		<div class="box">
+			
+				<u><h2 align="center">CUSTOMER DETAILS</h2></u>
+			
+			<form:input type="hidden" path="customerId" id="id" />
+			<label>First Name:</label><br>
+			<form:input path="fname" placeholder="Enter your first name"
+				cssClass="name" />
+			<form:errors path="fname" cssClass="error"></form:errors>
+			<label>Last Name:</label><br>
+			<form:input path="lname" placeholder="Enter your last name"
+				cssClass="name" />
+			<form:errors path="lname" cssClass="error"></form:errors>
+			<br> <label>Email</label>
+			<form:input path="email" placeholder="Enter your email"
+				cssClass="name" />
+			<form:errors path="email" cssClass="error"></form:errors>
+			<br> <label>Phone</label>
+			<form:input path="phone" placeholder="Enter your phone number"
+				cssClass="name" />
+			<form:errors path="phone" cssClass="error"></form:errors>
+			<br> <label>Address</label><br>
+			<form:textarea path="address" placeholder="Enter your address"
+				cssClass="address" />
+			<form:errors path="address" cssClass="error"></form:errors>
+			<br> <label>Mode of Payment</label><br>
+			<form:select path="payment" placeholder="Select payment mode"
+				cssClass="name">
+				<form:option value="Cash">Cash</form:option>
+				<form:option value="Card">Card</form:option>
+				<form:option value="Wallet">Wallet</form:option>
+				<form:errors path="payment" cssClass="error"></form:errors>
+			</form:select>
+			<br> <br> <br> <input type="submit" value="PLACE ORDER" Class="submit" />
+		</div>
+	</form:form>
+</body>
+</html>

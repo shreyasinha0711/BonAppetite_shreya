@@ -5,6 +5,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
+import com.risk.validator.IsEmailValid;
+import com.risk.validator.IsPhoneNumberValid;
 
 @Entity
 @Table(name="CustomerDetails")
@@ -15,15 +22,20 @@ public class Customer {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int customerId;
 	
+	@NotEmpty
+	@Pattern(regexp = "^[A-Za-z][^0-9,@#$%&(!)]+")
+	@Size(min = 5, max = 25)
 	private String fname;
 	
-	
+	@NotEmpty
+	@Pattern(regexp = "^[A-Za-z][^0-9,@#$%&(!)]+")
+	@Size(min = 1, max = 25)
 	private String lname;
 	
-	
+	@IsEmailValid
 	private String email;
 	
-	
+	@IsPhoneNumberValid
 	private String phone;
 	
 	
@@ -31,7 +43,6 @@ public class Customer {
 	
 	
 	private String payment;
-	
 	
 	
 	public int getCustomerId() {

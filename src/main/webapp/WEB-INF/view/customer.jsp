@@ -1,8 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page isELIgnored="false"%>
+<%@include file="/WEB-INF/view/includes.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,7 +6,10 @@
 <title>Insert title here</title>
 <style type="text/css">
 .error {
-	color: #ff0000;
+		color: #ff0000;
+	font-family: Arial, Helvetica;
+	font-size: 12px;
+	font-weight: 550;
 }
 
 body {
@@ -22,7 +21,6 @@ body {
 	background-size: auto;
 	position: relative;
 	background-position: center;
-	background-repeat: no-repeat;
 	padding: 200px;
 	font-family: Arial, Helvetica;
 }
@@ -43,6 +41,7 @@ body {
 	display: inline-block;
 	border: none;
 	background: #f1f1f1;
+	border-radius:3px;
 }
 
 .submit {
@@ -68,19 +67,25 @@ body {
   font-weight: bold;
   font-family:Georgia, serif;
   }
+  
+  .formheader {
+	text-align: center;
+	font-family: Georgia, serif;
+	text-decoration-line: underline;
+	text-decoration-style: solid;
+	font-size: 20px;
+}
 
 </style>
 </head>
 <body>
-	<div class="header">Bon Appetite
-	
-	</div>
+	<div class="header">Bon Appetite</div>
 
 	<form:form action="/CustomerDetails/registerSuccess" method="post"
 		modelAttribute="customer">
 		<div class="box">
 			
-				<u><h2 align="center">CUSTOMER DETAILS</h2></u>
+			<div class="formheader">CUSTOMER DETAILS</div><br><br>
 			
 			<form:input type="hidden" path="customerId" id="id" />
 			<label>First Name:</label><br>

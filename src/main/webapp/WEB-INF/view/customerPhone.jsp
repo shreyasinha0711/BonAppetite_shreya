@@ -79,47 +79,21 @@ body {
 </style>
 </head>
 <body>
-	
 	<div class="header">Bon Appetite</div>
 
-	<form:form action="/BonAppetite/registerSuccess" method="post"
-		modelAttribute="customer">
-		
+	<form action="/BonAppetite/customer" method="post" >
 		<div class="box">
 			
 			<div class="formheader">CUSTOMER DETAILS</div><br><br>
 			
-			<form:input type="hidden" path="customerId" id="id" />
-			<label>First Name:</label><br>
-			<form:input path="fname" placeholder="Enter your first name"
-				cssClass="name" />
-			<form:errors path="fname" cssClass="error"></form:errors>
-			<label>Last Name:</label><br>
-			<form:input path="lname" placeholder="Enter your last name"
-				cssClass="name" />
-			<form:errors path="lname" cssClass="error"></form:errors>
-			<br> <label>Email</label>
-			<form:input path="email" placeholder="Enter your email"
-				cssClass="name" />
-			<form:errors path="email" cssClass="error"></form:errors>
+			<input type="hidden" name="customerId" id="id" />
+			
 			<br> <label>Phone</label>
-			<form:input path="phone" placeholder="Enter your phone number"
-				cssClass="name" />
-			<form:errors path="phone" cssClass="error"></form:errors>
-			<br> <label>Address</label><br>
-			<form:textarea path="address" placeholder="Enter your address"
-				cssClass="address" />
-			<form:errors path="address" cssClass="error"></form:errors>
-			<br> <label>Mode of Payment</label><br>
-			<form:select path="payment" placeholder="Select payment mode"
-				cssClass="name">
-				<form:option value="Cash">Cash</form:option>
-				<form:option value="Card">Card</form:option>
-				<form:option value="Wallet">Wallet</form:option>
-				<form:errors path="payment" cssClass="error"></form:errors>
-			</form:select>
-			<br> <br> <br> <input type="submit" value="PLACE ORDER" Class="submit" />
+			<input type="text" name="phone" placeholder="Enter your phone number"
+				class="name"/>
+			
+			<br> <br> <br> <input type="submit" value="FIND" Class="submit" />
 		</div>
-	</form:form>
+	</form>
 </body>
 </html>

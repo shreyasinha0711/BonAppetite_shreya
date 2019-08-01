@@ -11,6 +11,7 @@ public class FoodMenu {
 	private int foodItemId;
 	private String foodItemName;
 	private double foodItemPrice;
+	
 	public int getFoodItemId() {
 		return foodItemId;
 	}

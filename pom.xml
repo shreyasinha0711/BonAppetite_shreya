@@ -52,6 +52,8 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>${hibernate.version}</version>
 		</dependency>
+		
+
 
 		<!-- jsr303 validation -->
 		<dependency>

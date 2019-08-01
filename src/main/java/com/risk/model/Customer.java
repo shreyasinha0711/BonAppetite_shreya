@@ -99,6 +99,11 @@ public class Customer {
 	}
 	public Customer() {
 	}
+	@Override
+	public String toString() {
+		return "Customer [customerId=" + customerId + ", fname=" + fname + ", lname=" + lname + ", email=" + email
+				+ ", phone=" + phone + ", address=" + address + ", payment=" + payment + "]";
+	}
 	
 
 }

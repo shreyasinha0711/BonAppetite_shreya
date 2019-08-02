@@ -15,6 +15,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 @Configuration
 @EnableTransactionManagement
@@ -61,5 +62,10 @@ public class HibernateConfiguration {
        txManager.setSessionFactory(s);
        return txManager;
     }
+	
+	@Bean
+	public javax.validation.Validator localValidatorFactoryBean() {
+	   return new LocalValidatorFactoryBean();
+	}
 
 }

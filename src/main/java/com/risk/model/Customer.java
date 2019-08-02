@@ -28,7 +28,7 @@ public class Customer {
 	private String fname;
 	
 	@NotEmpty
-	@Pattern(regexp = "^[A-Za-z][^0-9,@#$%&(!)]+")
+	@Pattern(regexp = "[^0-9]+")
 	@Size(min = 1, max = 25)
 	private String lname;
 	

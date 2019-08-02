@@ -14,8 +14,8 @@ body {
 	background-color: #000080;
 	padding-top: 10;
 	padding: 220px;
-	background-image:url("https://images.unsplash.com/photo-1460306855393-0410f61241c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
-	
+	background-image:
+		url("https://images.unsplash.com/photo-1460306855393-0410f61241c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
 }
 
 * {
@@ -34,11 +34,20 @@ body {
 	display: inline-block;
 	border: none;
 	background: #f1f1f1;
-	 border-radius:3px;
+	border-radius: 3px;
+}
+
+#pass {
+	margin: 5px 0 22px 0;
+	background: #f1f1f1;
+	width: 100%;
+	border-radius: 3px;
+	border: none;
+	padding: 15px;
 }
 
 .submit {
-	background-color: #4caf50;
+	background-color: #2a8742;
 	color: white;
 	padding: 16px 20px;
 	margin: 8px 0;
@@ -48,46 +57,55 @@ body {
 	opacity: 0.9;
 	align-items: center;
 	border-radius: 25px;
-	margin-left: 420px;
+	margin-left: 35%;
 }
 
-#pass
-{
- margin: 5px 0 22px 0;
-background: #f1f1f1;
-width: 100%;
- border-radius:3px;
-border: none;
-padding: 15px;
- font-size:18px;
+.formheader {
+	text-align: center;
+	font-family: Georgia, serif;
+	text-decoration-line: underline;
+	text-decoration-style: solid;
+	font-size: 20px;
 }
-#meter_wrapper
-{
- border:1px solid grey;
- margin-left:38%;
- margin-top:20px;
- width:200px;
- height:35px;
- border-radius:3px;
+
+.header {
+	position: absolute;
+	top: 35px;
+	left: 30%;
+	text-align: center;
+	color: white;
+	font-size: 85px;
+	font-weight: bold;
+	font-family: Georgia, serif;
 }
-#meter
-{
- width:0px;
- height:35px;
- border-radius:
+
+#meter_wrapper {
+	border: 1px solid grey;
+	margin-left: 38%;
+	margin-top: 20px;
+	width: 200px;
+	height: 35px;
+	border-radius: 3px;
 }
-#pass_type
-{
- font-size:20px;
- margin-top:20px;
- margin-left:45%;
- text-align:center;
- color:grey;
+
+#meter {
+	width: 0px;
+	height: 35px;
+	border-radius:
+}
+
+#pass_type {
+	font-size: 20px;
+	margin-top: 20px;
+	margin-left: 45%;
+	text-align: center;
+	color: grey;
 }
 </style>
 
 <!-- <script type="text/javascript" src="js/jquery.js"></script> -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
 
 
@@ -192,68 +210,60 @@ padding: 15px;
 </script>
 </head>
 <body>
-
- 
-               
-            
-	
-	<form:form action="/BonAppetite/success_register" method="post" onsubmit="return checkForm()" modelAttribute="employee">
+	<div class="header">Bon Appetite</div>
+	<form:form action="/BonAppetite/success_register" method="post"
+		onsubmit="return checkForm()" modelAttribute="employee">
 		<div class="box">
-		<center><h1>Employee Registration</h1></center>
-			<label>Name:</label><br>
+			<div class="formheader">EMPLOYEE REGISTERATION</div>
+			<br>
+			<br> <label>Name:</label><br>
 			<form:input path="name" placeholder="Enter your last name"
 				cssClass="name" />
 			<form:errors path="name" cssClass="error"></form:errors>
 			<br> <label>Age</label>
-			<form:input path="age" placeholder="enter your age" cssClass="name" />
+			<form:input path="age" placeholder="Enter your age" cssClass="name" />
 			<form:errors path="age" cssClass="error"></form:errors>
 			<br> <label>Email</label>
-			<form:input path="email" placeholder="enter your email"
+			<form:input path="email" placeholder="Enter your email"
 				cssClass="name" />
 			<form:errors path="email" cssClass="error"></form:errors>
-			
-			 <td colspan="3">
-                    <c:choose>
-                        <c:when test="${hasMistakes}">
-                           <center> <h4 class="error">There is a user with same email id</h4></center>
-                        </c:when>
-                        <c:otherwise>
-                          
-                        </c:otherwise>
-                    </c:choose>
-                </td>
-			
-			<br> <label>phone</label>
-			<form:input path="phone" placeholder="enter your phone number"
+
+			<td colspan="3"><c:choose>
+					<c:when test="${hasMistakes}">
+						<center>
+							<h4 class="error">There is a user with same email id</h4>
+						</center>
+					</c:when>
+					<c:otherwise>
+
+					</c:otherwise>
+				</c:choose></td> <br> <label>Phone</label>
+			<form:input path="phone" placeholder="Enter your phone number"
 				maxlength="10" cssClass="name" />
 			<form:errors path="phone" cssClass="error"></form:errors>
-			<br> <label>password</label><br>
+			<br> <label>Password</label><br>
 			<form:input path="password" type="password" id="pass"
-				placeholder="enter your password" cssClass="name" />
+				placeholder="Enter your password" cssClass="name" />
 			<form:errors path="password" cssClass="error"></form:errors>
-			
+
 			<div id="meter_wrapper">
 				<div id="meter"></div>
 			</div>
-			
+
 			<br> <span id="pass_type"></span> <br>
-			
+
 			<!-- An element to toggle between password visibility -->
-		<input type="checkbox" onclick="myFunction()">Show Password
+			<input type="checkbox" onclick="myFunction()">Show Password <br>
 			<br>
-			<br><br>
-			
-			 <label>Confirm
-				Password</label><br> <input name="confirm_password" type="password" id="confirm_password" 
-				placeholder="re enter password" class="name" /> <br>
-				
-				 <input
+			<br> <label>Confirm Password</label><br> <input
+				name="confirm_password" type="password" id="confirm_password"
+				placeholder="Re-enter password" class="name" /> <br> <input
 				type="submit" value="REGISTER" class="submit" /> <br> <br>
-				
-				
+
+
 			<center>
-				<a href="/BonAppetite/" style="text-align: center">already have an
-					account? Sign in</a>
+				<a href="/BonAppetite/" style="text-align: center">Already have
+					an account? Sign in</a>
 			</center>
 		</div>
 

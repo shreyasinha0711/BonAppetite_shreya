@@ -6,8 +6,7 @@ import com.risk.model.FoodMenu;
 
 public interface FoodMenuService {
 
-	List<FoodMenu> getFoodMenuList();
-
-	void SaveFoodMenu(FoodMenu foodMenu);
-
+	List<FoodMenu> getMenuList();
+	
+	void SaveMenu(FoodMenu menu);
 }

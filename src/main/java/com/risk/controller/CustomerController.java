@@ -77,7 +77,7 @@ public class CustomerController {
 		if(isPhoneNumberPresent==false) {
 		customerService.saveCustomer(customer);
 		}
-		return "registerSuccess";
+		return "redirect:/order";
 	}
 }
 

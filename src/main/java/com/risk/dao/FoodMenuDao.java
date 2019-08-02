@@ -5,9 +5,7 @@ import java.util.List;
 import com.risk.model.FoodMenu;
 
 public interface FoodMenuDao {
-	
-	List<FoodMenu> getFoodMenuList();
+	List<FoodMenu> getMenuList();
 	 
-	 void SaveFoodMenu(FoodMenu foodMenu);
-
+	 void SaveMenu(FoodMenu menu);
 }

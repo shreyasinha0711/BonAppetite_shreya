@@ -45,7 +45,7 @@ body {
 }
 
 .submit {
-	background-color: #555555;
+	background-color: #2a8742;
 	color: white;
 	padding: 16px 20px;
 	margin: 8px 0;

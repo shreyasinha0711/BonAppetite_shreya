@@ -7,18 +7,18 @@ import org.springframework.stereotype.Repository;
 
 import com.risk.model.FoodMenu;
 
-@Repository("foodMenuDao")
+@Repository("orderDao")
 public class FoodMenuDaoImpl extends AbstractDao<Integer, FoodMenu> implements FoodMenuDao {
 
 	@SuppressWarnings("unchecked")
-	public List<FoodMenu> getFoodMenuList() {
+	public List<FoodMenu> getMenuList() {
 		Criteria criteria = createEntityCriteria();
 		return (List<FoodMenu>) criteria.list();
 	}
 
 	@Override
-	public void SaveFoodMenu(FoodMenu foodMenu) {
-		persist(foodMenu);
+	public void SaveMenu(FoodMenu menu) {
+		persist(menu);
 	}
 
 }

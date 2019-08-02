@@ -83,7 +83,7 @@ body {
 	background-color: white;
 	padding: 20px;
 }
-.name, .address {
+.fielddesign {
 	width: 100%;
 	padding: 15px;
 	margin: 5px 0 22px 0;
@@ -99,11 +99,11 @@ body {
 	margin: 8px 0;
 	border: none;
 	cursor: pointer;
-	width: 30%;
+	width: 20%;
 	opacity: 0.9;
 	align-items: center;
 	border-radius: 25px;
-	margin-left: 35%;
+	margin-left: 40%;
 }
 
 .header{
@@ -124,6 +124,22 @@ body {
 	text-decoration-style: solid;
 	font-size: 20px;
 }
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 2px solid #948f8f;
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
 </style>
 
 </head>
@@ -133,6 +149,44 @@ body {
 	<form:form action="/BonAppetite/success" method="post"
 		modelAttribute="order">
 			<div class="formheader">ORDER DETAILS</div><br><br>
+			
+			<label>Food Name</label><br>
+			<select name="foodItemPrice" id="mySelect" placeholder="Select Food Item" class="fielddesign"
+					onchange="myNewFunction(this);">
+						<c:forEach items="${FoodMenu}" var="FoodMenu">
+							<option id="name"
+								value="${FoodMenu.foodItemPrice}/${FoodMenu.foodItemId}">${FoodMenu.foodItemName}</option>
+						</c:forEach>
+				</select>
+				<label>Quantity</label><br>
+				<form:select path="quantity" id="quantity" cssClass="fielddesign"
+						onchange="Function()">
+						<%
+							for (int i = 1; i < 10; i += 1) {
+						%>
+						<option value="<%=i%>">
+							<%
+								out.print(i);
+							%>
+						</option>
+						<%
+							}
+						%>
+					</form:select>
+					
+					<label>Comments</label><br>
+			<form:textarea path="comment" id="comment" placeholder="Any Customization Required"
+				cssClass="fielddesign" />
+			
+				<form:input type="hidden" path="foodItemName"
+						id="food_name" />
+						<form:input type="hidden" path="foodItemId" id="foodId" />
+						
+						<input type="submit" value="Add" onclick="addFunction()" class="submit">
+	
+					
+					
+		<!--  		
 		<table>
 			<tr>
 				<td>Food name:</td>
@@ -146,7 +200,7 @@ body {
 
 			</tr>
 			<tr>
-				<td>quantity:</td>
+				<td>Quantity:</td>
 				<td><form:select path="quantity" id="quantity"
 						onchange="Function()">
 						<%
@@ -183,7 +237,7 @@ body {
 					onclick="clickFunction()"></td>
 			</tr>
 		</table>
-
+-->
 	</form:form>
 
 	<p id="total"></p>
@@ -195,10 +249,10 @@ body {
 		<tr>
 			<td>Order Id</td>
 			<td>Food Name</td>
-			<td>quantity</td>
-			<td>price</td>
-			<td>total amount</td>
-			<td>comment</td>
+			<td>Quantity</td>
+			<td>Price</td>
+			<td>Total Amount</td>
+			<td>Comment</td>
 		</tr>
 		<c:forEach items="${orderList}" var="orderList">
 			<tr>
@@ -214,10 +268,14 @@ body {
 			</tr>
 		</c:forEach>
 	</table>
+<br><br>
 
-	<button align="center"
+<input type="submit" value="Generate Bill" onclick="window.location.href = '/BonAppetite/bill';" class="submit">
+
+	<!--  <button align="center"
 		onclick="window.location.href = '/BonAppetite/bill';" type="button"
 		value="submit">submit</button>
+		-->
 
 </div>
 </body>
